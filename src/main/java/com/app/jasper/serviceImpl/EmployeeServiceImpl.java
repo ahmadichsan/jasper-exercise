@@ -80,14 +80,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Map<String, Object>> report() {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-		for (Employee employee : employeeDao.findAll()) {
+		Long id = (long) 0;
+		for (Employee employee : employeeDao.findAllByOrderByCityAscGenderAscNameAsc()) {
 			Map<String, Object> item = new HashMap<String, Object>();
-			item.put("id", employee.getId());
+			id = id + 1;
+			item.put("id", id);
 			item.put("name", employee.getName());
 			item.put("gender", employee.getGender());
 			item.put("dob", employee.getDob());
-			item.put("address", employee.getAddress());
-			item.put("salary", employee.getSalary());
+			item.put("city", employee.getCity());
 			result.add(item);
 		}
 		return result;

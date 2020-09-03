@@ -45,7 +45,7 @@ public class EmployeeController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> update(@PathVariable(value = "id") Long id, @RequestBody EmployeeDto employeeDto) {
 		try {
@@ -55,18 +55,18 @@ public class EmployeeController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/report", method = RequestMethod.GET)
 	public void report(HttpServletResponse response) throws Exception {
 		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employeeService.report());
 		InputStream inputStream = this.getClass().getResourceAsStream("/reports/employee.jrxml");
 		JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
-		
-		response.setContentType("application/x-pdf");
-	    response.setHeader("Content-disposition", "inline; filename=employeeReport.pdf");
 
-	    final OutputStream outStream = response.getOutputStream();
-	    JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
+		response.setContentType("application/x-pdf");
+		response.setHeader("Content-disposition", "inline; filename=employeeReport.pdf");
+
+		final OutputStream outStream = response.getOutputStream();
+		JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
 	}
 }
