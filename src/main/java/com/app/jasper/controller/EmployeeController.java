@@ -61,7 +61,11 @@ public class EmployeeController {
 		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(employeeService.report());
 		InputStream inputStream = this.getClass().getResourceAsStream("/reports/employee.jrxml");
 		JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
-		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
+		
+		final Map<String, Object> parameters = new HashMap<>();
+        parameters.put("createdBy", "Ichsan");
+        
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
 		response.setContentType("application/x-pdf");
 		response.setHeader("Content-disposition", "inline; filename=employeeReport.pdf");

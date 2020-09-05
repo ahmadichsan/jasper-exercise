@@ -7,6 +7,7 @@
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="createdBy" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -46,7 +47,7 @@
 		<band height="8" splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="74" splitType="Stretch">
+		<band height="79" splitType="Stretch">
 			<image>
 				<reportElement x="275" y="0" width="300" height="64" uuid="761486df-0ce5-40be-9388-6bda862b28db"/>
 				<imageExpression><![CDATA["src/main/resources/reports/leaf_banner_gray.png"]]></imageExpression>
@@ -59,7 +60,18 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band splitType="Stretch"/>
+		<band height="38" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
+			<textField>
+				<reportElement x="453" y="0" width="100" height="30" uuid="bdee008f-911b-492b-8cbb-d44c2a04e81c"/>
+				<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="0" width="100" height="30" uuid="676df512-78a4-4a7b-acbd-b8a88b1fce67"/>
+				<text><![CDATA[Created By]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="42" splitType="Stretch">
