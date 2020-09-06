@@ -1,5 +1,6 @@
 package com.app.jasper.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class EmployeeDto {
@@ -8,17 +9,19 @@ public class EmployeeDto {
     private String gender;
     private Date dob;
     private String city;
+    private BigDecimal salary;
     
     public EmployeeDto() {
     	
     }
 
-	public EmployeeDto(String name, String gender, Date dob, String city) {
+	public EmployeeDto(String name, String gender, Date dob, String city, BigDecimal salary) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.dob = dob;
 		this.city = city;
+		this.salary = salary;
 	}
 
 	public String getName() {
@@ -51,5 +54,13 @@ public class EmployeeDto {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public BigDecimal getSalary() {
+		return salary;
+	}
+
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
 	}
 }

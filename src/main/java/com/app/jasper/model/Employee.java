@@ -1,5 +1,6 @@
 package com.app.jasper.model;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import javax.persistence.*;
@@ -25,17 +26,21 @@ public class Employee {
     @Column(name = "city", nullable = false)
     private String city;
     
+    @Column(name = "salary", nullable = true)
+    private BigDecimal salary;
+    
     public Employee() {
     	
     }
 
-	public Employee(Long id, String name, String gender, Date dob, String city) {
+	public Employee(Long id, String name, String gender, Date dob, String city, BigDecimal salary) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
 		this.dob = dob;
 		this.city = city;
+		this.salary = salary;
 	}
 
 	public Long getId() {
@@ -76,5 +81,13 @@ public class Employee {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public BigDecimal getSalary() {
+		return salary;
+	}
+
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
 	}
 }
