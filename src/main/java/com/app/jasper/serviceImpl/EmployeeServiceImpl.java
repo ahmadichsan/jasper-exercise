@@ -89,6 +89,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			item.put("gender", employee.getGender());
 			item.put("dob", employee.getDob());
 			item.put("city", employee.getCity());
+			item.put("salary", employee.getSalary());
 			result.add(item);
 		}
 		return result;
