@@ -372,20 +372,6 @@
 	<pageFooter>
 		<band height="40" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<textField>
-				<reportElement style="Column header" x="400" y="13" width="112" height="20" uuid="deb23d85-47bb-4de6-978e-113ff117188c"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement style="Column header" x="513" y="13" width="40" height="20" uuid="c6ce76ba-6e11-41e2-9415-72dc2eff001b"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<textField pattern="MMM d, yyyy h:mm:ss a z">
 				<reportElement style="Column header" x="70" y="13" width="130" height="20" uuid="5a79d2a0-bcde-4ad5-adf0-c4eb2066f6dd">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -406,6 +392,36 @@
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Printed Date:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="470" y="13" width="25" height="20" forecolor="#666666" uuid="ad5bc733-7019-4d37-9620-996a9abea782">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="515" y="13" width="20" height="20" forecolor="#666666" uuid="aa1887cb-ce0b-4ab6-b645-22539bdbda89">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[of]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="535" y="13" width="20" height="20" forecolor="#666666" uuid="6573c9ac-de44-48ba-9221-4e0aae6d1640">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="13" width="20" height="20" forecolor="#666666" uuid="2004d9f5-fd15-458a-bf5a-9299901983ff">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 	<summary>
