@@ -63,8 +63,8 @@ public class EmployeeController {
 		JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
 		
 		final Map<String, Object> parameters = new HashMap<>();
-        parameters.put("cityParam", "Jakarta");
-        parameters.put("genderParam", "Male");
+        parameters.put("cityParam", "All");
+        parameters.put("genderParam", "All");
         
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
